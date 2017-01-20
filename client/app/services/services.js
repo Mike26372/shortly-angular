@@ -2,6 +2,48 @@ angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
   // Your code here
+  var getAll = function() {
+    return $http({
+      method: 'GET',
+      url: '/api/links',
+    }).then(function(resp) {
+      return resp.data;
+    }).catch(function(err) {
+      console.error('GET LINKS ERROR');
+    });
+  };
+
+  var addOne = function(newLink) {
+    return $http({
+      method: 'POST',
+      url: '/api/links',
+      data: newLink
+    }).then(function(resp) {
+      resp.status = 201;
+      return resp;
+    }).catch(function(err) {
+      console.err('NAV TO LINK ERROR');
+    });
+  };
+
+  var navToLink = function(newUrl) {
+    console.log('INSIDE SERVICES');
+    console.log(newUrl);
+    return $http({
+      method: 'GET',
+      url: `/${newUrl.code}`,
+    }).then(function(resp) {
+      resp.status = 200;
+      return resp;
+    });
+  };
+
+  return {
+    getAll: getAll,
+    addOne: addOne,
+    navToLink: navToLink
+  };
+
 })
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!

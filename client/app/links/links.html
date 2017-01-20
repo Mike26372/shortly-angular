@@ -1,3 +1,10 @@
 <div id='container'>
   <!-- Your html here -->
+  <div ng-controller="LinksController">
+    <h1>Links</h1>
+    <ul>
+      <li ng-repeat="link in data.links track by $index"
+          ng-click="navToLink({code: link.code})">{{link.url}}</li>
+    </ul>
+  </div>
 </div>

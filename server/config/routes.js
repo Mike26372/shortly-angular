@@ -3,6 +3,10 @@ var userController = require('../users/userController.js');
 var helpers = require('./helpers.js'); // our custom middleware
 
 module.exports = function (app, express) {
+  // THIS IS NEW
+  // app.get('/api/', userController.checkAuth);
+  
+  // THIS IS FROM HR
   app.get('/:code', linksController.navToLink);
 
   app.post('/api/users/signin', userController.signin);
