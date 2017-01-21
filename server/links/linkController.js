@@ -55,7 +55,6 @@ module.exports = {
   },
 
   navToLink: function (req, res, next) {
-    console.log('DATA SENT VIA GET: ', req.params);
     findLink({code: req.params.code})
       .then(function (link) {
         if (!link) {

@@ -22,10 +22,10 @@ angular.module('shortly', [
     .when('/shorten', {
       templateUrl: 'app/shorten/shorten.html',
       controller: 'ShortenController'
-    })
-    .otherwise({
-      redirectTo: '/signin'
     });
+    // .otherwise({
+    //   redirectTo: '/signin'
+    // });
     // .when('/', {
     //   templateUrl: 'app/auth/signup.html',
     //   controller: 'AuthController'

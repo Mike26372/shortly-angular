@@ -1,11 +1,21 @@
 angular.module('shortly.shorten', [])
 
-.controller('ShortenController', function ($scope, $location, Links) {
+.controller('ShortenController', function ($scope, $location, Links, Auth) {
   // Your code here
-  $scope.link = {};
-  $scope.addLink = function(newLink) {
-    Links.addOne(newLink);
-  };
+  if (!Auth.isAuth()) {
+    console.log('IS NOT AUTHORIZED');
+    // CHECK IF THIS LOCATION CHANGE WORKS
+    $location.path('/signin');
+  } else {
+    console.log('AUTHORIZED');
+    $scope.link = {};
+    $scope.addLink = function(newLink) {
+      Links.addOne(newLink);
+      $scope.link.url = '';
+    };
+  }
 
-  
+
+  // Check if user is authorized, if not, update location to signin
+
 });

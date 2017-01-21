@@ -27,11 +27,9 @@ angular.module('shortly.services', [])
   };
 
   var navToLink = function(newUrl) {
-    console.log('INSIDE SERVICES');
-    console.log(newUrl);
     return $http({
       method: 'GET',
-      url: `/${newUrl.code}`,
+      url: '/' + newUrl.code,
     }).then(function(resp) {
       resp.status = 200;
       return resp;
