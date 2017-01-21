@@ -2,9 +2,20 @@
   <!-- Your html here -->
   <div ng-controller="LinksController">
     <h3>Links</h3>
-    <ul>
-      <li ng-repeat="link in data.links track by $index"
-          ng-click="navToLink({code: link.code})">{{link.url}}</li>
-    </ul>
+    <div>
+      <div ng-repeat="link in data.links | orderBy:'-visits' track by $index">
+        <div class="card">
+          <div class="card-header">
+            {{link.title}}
+          </div>
+          <div class="card-block">
+            <blockquote class="card-blockquote">
+              <a href={{link.url}}>{{link.url}}</a>
+              <footer>{{link.visits}} visits</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

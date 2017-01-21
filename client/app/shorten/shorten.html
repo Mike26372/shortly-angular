@@ -4,8 +4,15 @@
   <form name="shortenUrl" ng-submit='addLink({url: link.url})'>
     <div class="form-group">
       <label>Please add a url to shorten</label>
-      <input class="form-control" type='text' ng-model='link.url' placeholder="URL goes here...">
-      <button class="btn btn-primary">Add</button>
+      <input class="form-control" type='url' name='input' 
+      ng-model='link.url' placeholder="URL goes here..." required>
+      <button class="btn btn-primary" ng-show="shortenUrl.$valid">Add</button>
+    </div>
+    <div role="alert" class="rows">
+      <span class="alert alert-danger" ng-show="shortenUrl.input.$error.required">
+        URL required!</span>
+      <span class="alert alert-danger" ng-show="shortenUrl.input.$error.url">
+        Not valid url!</span>
     </div>
   </form>
 </div>

@@ -15,7 +15,6 @@ angular.module('shortly.links', [])
   }
 
   $scope.navToLink = function(newUrl) {
-    console.log('LINK CONTROLLER CODE:', newUrl);
     Links.navToLink(newUrl);
   };
 

@@ -15,7 +15,4 @@ angular.module('shortly.shorten', [])
     };
   }
 
-
-  // Check if user is authorized, if not, update location to signin
-
 });
